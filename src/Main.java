@@ -1,5 +1,10 @@
 /*
+Med utgångspunkt i den länkade koden, skriv ett program som löser Sudoku
 
+Ni kommer själva behöva implementera:
+Backtracking
+Kod för att hitta nästa lediga position
+Kod för att skriva ut brädet
  */
 public class Main {
 
