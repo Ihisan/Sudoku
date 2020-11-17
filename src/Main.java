@@ -1,35 +1,5 @@
 /*
-Med utgångspunkt i den länkade koden, skriv ett program som löser Sudoku
-
-Ni kommer själva behöva implementera:
-Backtracking
-Kod för att hitta nästa lediga position
-Kod för att skriva ut brädet
- */
-public class Main {
-
-        private static boolean possible(int[][] board, int x, int y, int value){
-            //kontrollera rad och kolumn
-            for(int i = 0; i < 9; i++){
-                if(board[y][i] == value || board[i][x] == value){
-                    return false;
-                }
-            }
-            //kontrollera rutan
-            int x0 = (int)Math.floor(x/3) * 3;
-            int y0 = (int)Math.floor(y/3) * 3;
-            for(int i = 0; i < 3; i++){
-                for(int j = 0; j < 3; j++){
-                    if (board[y0+i][x0+j] == value){
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-
-        private static void solve(int[][] board){
-            //Loopa igenom alla rader och kolumner
+//Loopa igenom alla rader och kolumner
             //  Kolla om det är en nolla på aktuell pos
             //      Loopa igenom alla värden från 1 till 9
             //          Kolla om man kan placera aktuellt värd på aktuell position
@@ -38,7 +8,54 @@ public class Main {
             //                      Ta bort aktuellt värde
             //      Gör return
             // Skriv ut lösning
+ */
+public class Main {
+    private int [][] board;
+    static int size = 9;
+    static int empty = 0;
+
+        private static boolean possible(int[][] board, int x, int y, int value){
+            //kontrollera rad och kolumn
+            for(int i = 0; i < size; i++){
+                if(board[y][i] == value || board[i][x] == value){
+                    return true;
+                }
+            }
+            //kontrollera rutan
+            return false;
+
         }
+
+        private boolean isInBox(int [][] board,int x, int y, int value) {
+            int x0 = x / 3 * 3;
+            int y0 = y / 3 * 3;
+
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (board[y0 + i][x0 + j] == value) {
+                        return true;
+                    }
+                }
+            }return false;
+        }
+
+        private boolean isOk(int x, int y, int value){
+            return !possible (x,y,value) && possible (x,value) && possible (x,y,value);
+        }
+
+        private void solve(int[][] board){
+            this.board = new int[size][size];
+            for (int i = 0; i < size; i++){
+                for (int j = 0; j < size; j++){
+                    this.board[i][j] = board[i][j];
+
+                }
+            }
+            solve (board);
+
+        }
+
+
 
         public static void main(String[] args) {
             int [][] board = {{0, 0, 0, 8, 0, 4, 9, 3, 7},
