@@ -87,8 +87,6 @@ public class Main {
                 {0, 0, 7, 0, 9, 0, 6, 0, 0},
                 {0, 2, 1, 7, 5, 6, 8, 9, 0},
                 {6, 5, 9, 2, 3, 0, 0, 7, 4}};
-
-        Main sudoku = new Main ();
         System.out.println("Sudoku the board");
         printSudoku (board);
 
