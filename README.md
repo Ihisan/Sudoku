@@ -1,2 +1,2 @@
 # Sudoku
-#Av: Mohammed Ireheem, Ihisan Bashe
+#Av: Mohammed Irheem, Ihisan Bashe
