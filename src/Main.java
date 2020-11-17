@@ -8,8 +8,6 @@ Kod för att skriva ut brädet
 
  */
 public class Main {
-
-    private static int[][] board;
     static int size = 9;
     static int empty = 0;
 
