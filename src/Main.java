@@ -42,6 +42,38 @@ public class Main {
             // Skriv ut lösning
         }
 
+    private static boolean solve(int[][] board, int x, int y, int value){
+        //Loopa igenom alla rader och kolumner
+        //  Kolla om det är en nolla på aktuell pos
+        //      Loopa igenom alla värden från 1 till 9
+        //          Kolla om man kan placera aktuellt värd på aktuell position
+        //              Om ja, placera aktuellt värde
+        //                  anropa solve
+        //                      Ta bort aktuellt värde
+        //      Gör return
+        // Skriv ut lösning
+
+
+        for (int x = 0; x < value; x++) {
+            for (int y = 0; y < value; y++) {
+                //search an empty cell
+                if (board[x][y] == 0) {
+                    //try possible numbers
+                    for (int number = 1; number <= value; number++) {
+                        if (!possible (x, y, number)) {
+                            // number ok. it respects sudoku constraints
+                            board[x][y] = number;
+                            // we start backtracking recursively
+                            if (solve()) {
+                                return true;
+                                // if not a solution, we empty the cell and we continue
+                            } else {
+                                board[x][y] = 0;
+                            }
+                        }
+                    }
+                }
+
         public static void main(String[] args) {
             int [][] board = {{0, 0, 0, 8, 0, 4, 9, 3, 7},
                     {0, 7, 4, 1, 0, 0, 0, 8, 0},
