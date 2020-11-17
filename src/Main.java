@@ -6,10 +6,6 @@ Backtracking
 Kod för att hitta nästa lediga position
 Kod för att skriva ut brädet
 
-<<<<<<< .merge_file_a56TPS
-Add info
-=======
->>>>>>> .merge_file_OJ4KCg
  */
 public class Main {
 
@@ -94,60 +90,11 @@ public class Main {
         System.out.println("Sudoku the board");
         printSudoku (board);
 
-<<<<<<< .merge_file_a56TPS
-    private static boolean solve(int[][] board, int x, int y, int value){
-        //Loopa igenom alla rader och kolumner
-        //  Kolla om det är en nolla på aktuell pos
-        //      Loopa igenom alla värden från 1 till 9
-        //          Kolla om man kan placera aktuellt värd på aktuell position
-        //              Om ja, placera aktuellt värde
-        //                  anropa solve
-        //                      Ta bort aktuellt värde
-        //      Gör return
-        // Skriv ut lösning
-
-
-        for (int x = 0; x < value; x++) {
-            for (int y = 0; y < value; y++) {
-                //search an empty cell
-                if (board[x][y] == 0) {
-                    //try possible numbers
-                    for (int number = 1; number <= value; number++) {
-                        if (!possible (x, y, number)) {
-                            // number ok. it respects sudoku constraints
-                            board[x][y] = number;
-                            // we start backtracking recursively
-                            if (solve()) {
-                                return true;
-                                // if not a solution, we empty the cell and we continue
-                            } else {
-                                board[x][y] = 0;
-                            }
-                        }
-                    }
-                }
-
-        public static void main(String[] args) {
-            int [][] board = {{0, 0, 0, 8, 0, 4, 9, 3, 7},
-                    {0, 7, 4, 1, 0, 0, 0, 8, 0},
-                    {8, 3, 2, 0, 0, 0, 4, 0, 0},
-                    {2, 0, 5, 3, 0, 0, 7, 4, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 1, 6},
-                    {1, 4, 3, 0, 0, 0, 2, 0, 0},
-                    {0, 0, 7, 0, 9, 0, 6, 0, 0},
-                    {0, 2, 1, 7, 5, 6, 8, 9, 0},
-                    {6, 5, 9, 2, 3, 0, 0, 7, 4}};
-            System.out.println(possible(board, 4, 4, 2));
-            System.out.println(possible(board, 4, 4, 1));
-            System.out.println(possible(board, 5, 6, 3));
-            System.out.println(possible(board, 0, 0, 5));
-=======
         if (solve(board)) {
             System.out.println("\nSudoku board solved with backtracking");
             printSudoku (board);
         } else {
             System.out.println("Can't solve");
->>>>>>> .merge_file_OJ4KCg
         }
     }
 }
