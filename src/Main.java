@@ -5,6 +5,8 @@ Ni kommer själva behöva implementera:
 Backtracking
 Kod för att hitta nästa lediga position
 Kod för att skriva ut brädet
+
+Add info
  */
 public class Main {
 
